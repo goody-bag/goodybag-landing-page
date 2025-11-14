@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -18,23 +18,25 @@
 
 @layer utilities {
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
       transform: translateY(-20px);
     }
   }
-  
+
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px rgba(230, 57, 70, 0.3);
     }
     50% {
       box-shadow: 0 0 40px rgba(230, 57, 70, 0.6);
     }
   }
-  
+
   @keyframes slide-up {
     from {
       opacity: 0;
@@ -45,7 +47,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes scale-in {
     from {
       opacity: 0;
@@ -56,7 +58,7 @@
       transform: scale(1);
     }
   }
-  
+
   @keyframes shimmer {
     0% {
       background-position: -1000px 0;
@@ -65,7 +67,7 @@
       background-position: 1000px 0;
     }
   }
-  
+
   @keyframes rotate-slow {
     from {
       transform: rotate(0deg);
@@ -74,23 +76,23 @@
       transform: rotate(360deg);
     }
   }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
+
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
-  
+
   .animate-slide-up {
     animation: slide-up 0.6s ease-out;
   }
-  
+
   .animate-scale-in {
     animation: scale-in 0.5s ease-out;
   }
-  
+
   .animate-shimmer {
     animation: shimmer 2s linear infinite;
     background: linear-gradient(
@@ -101,7 +103,7 @@
     );
     background-size: 1000px 100%;
   }
-  
+
   .animate-rotate-slow {
     animation: rotate-slow 20s linear infinite;
   }

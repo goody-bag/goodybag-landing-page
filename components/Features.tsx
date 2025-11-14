@@ -1,34 +1,38 @@
-'use client';
+"use client";
 
 export default function Features() {
   const features = [
     {
-      icon: '🎨',
-      title: 'Personalized Gifting',
-      description: 'Create custom gift packages tailored to your recipient\'s preferences, interests, and occasions. Every gift tells your unique story.',
-      color: 'from-pink-50 to-rose-50',
-      iconBg: 'bg-pink-100',
+      icon: "🎨",
+      title: "Personalized Gifting",
+      description:
+        "Create custom gift packages tailored to your recipient's preferences, interests, and occasions. Every gift tells your unique story.",
+      color: "from-pink-50 to-rose-50",
+      iconBg: "bg-pink-100",
     },
     {
-      icon: '📦',
-      title: 'Smart Packaging Logic',
-      description: 'Intelligent selection of bags, boxes, and wraps based on your items. Beautiful presentation that makes unboxing an experience.',
-      color: 'from-blue-50 to-cyan-50',
-      iconBg: 'bg-blue-100',
+      icon: "📦",
+      title: "Smart Packaging Logic",
+      description:
+        "Intelligent selection of bags, boxes, and wraps based on your items. Beautiful presentation that makes unboxing an experience.",
+      color: "from-blue-50 to-cyan-50",
+      iconBg: "bg-blue-100",
     },
     {
-      icon: '🤝',
-      title: 'Trusted Vendor Network',
-      description: 'Carefully curated partners offering quality products from local artisans to premium brands. Only the best for your gifts.',
-      color: 'from-purple-50 to-indigo-50',
-      iconBg: 'bg-purple-100',
+      icon: "🤝",
+      title: "Trusted Vendor Network",
+      description:
+        "Carefully curated partners offering quality products from local artisans to premium brands. Only the best for your gifts.",
+      color: "from-purple-50 to-indigo-50",
+      iconBg: "bg-purple-100",
     },
     {
-      icon: '📍',
-      title: 'Seamless Delivery Tracking',
-      description: 'Real-time updates from packaging to doorstep. Know exactly when your thoughtful gift will arrive and delight your recipient.',
-      color: 'from-green-50 to-emerald-50',
-      iconBg: 'bg-green-100',
+      icon: "📍",
+      title: "Seamless Delivery Tracking",
+      description:
+        "Real-time updates from packaging to doorstep. Know exactly when your thoughtful gift will arrive and delight your recipient.",
+      color: "from-green-50 to-emerald-50",
+      iconBg: "bg-green-100",
     },
   ];
 
@@ -56,7 +60,9 @@ export default function Features() {
             >
               <div className="flex flex-col h-full">
                 {/* Icon */}
-                <div className={`${feature.iconBg} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 transform hover:rotate-12`}>
+                <div
+                  className={`${feature.iconBg} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 transform hover:rotate-12`}
+                >
                   <span className="text-4xl animate-pulse">{feature.icon}</span>
                 </div>
 
@@ -72,7 +78,9 @@ export default function Features() {
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="flex items-center text-primary font-semibold group-hover:gap-3 gap-2 transition-all">
                     <span>Learn more</span>
-                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
                   </div>
                 </div>
               </div>
@@ -86,7 +94,11 @@ export default function Features() {
             Ready to experience the future of gifting?
           </p>
           <button
-            onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("waitlist")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="bg-gradient-to-r from-primary to-pink-500 hover:from-primary-dark hover:to-pink-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-pulse-glow"
           >
             Join the Waitlist
@@ -96,4 +108,3 @@ export default function Features() {
     </section>
   );
 }
-
