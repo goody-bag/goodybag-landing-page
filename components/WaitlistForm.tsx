@@ -12,6 +12,7 @@ export default function WaitlistForm() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string>("");
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -40,10 +41,28 @@ export default function WaitlistForm() {
     }
 
     setIsSubmitting(true);
+    setSubmitError("");
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Get API URL from environment variable (required)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) {
+        throw new Error("NEXT_PUBLIC_API_URL environment variable is not set");
+      }
+      const response = await fetch(`${apiUrl}/api/v1/waitlist`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || "Failed to join waitlist. Please try again."
+        );
+      }
+
+      // Success
       setIsSubmitted(true);
 
       // Reset form
@@ -52,7 +71,16 @@ export default function WaitlistForm() {
         email: "",
         userType: "individual",
       });
-    }, 1000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Failed to join waitlist. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -269,6 +297,15 @@ export default function WaitlistForm() {
                   <option value="business">🏢 Business</option>
                 </select>
               </div>
+
+              {/* Error Message */}
+              {submitError && (
+                <div className="bg-red-50 border-2 border-red-500 rounded-xl p-4 animate-slide-up">
+                  <p className="text-red-600 font-semibold text-center">
+                    {submitError}
+                  </p>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div
