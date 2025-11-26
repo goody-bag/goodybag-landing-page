@@ -44,30 +44,7 @@ export default function WaitlistForm() {
     setSubmitError("");
 
     try {
-      // Get API URL from environment variable
-      // Note: NEXT_PUBLIC_* variables are embedded at BUILD TIME in Next.js
-      // If you set this on Vercel, you MUST redeploy for it to take effect
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-      if (!apiUrl) {
-        // Show helpful error message
-        console.error(
-          "NEXT_PUBLIC_API_URL is not set. This variable must be set at build time."
-        );
-        console.error(
-          "For Vercel: Set it in Environment Variables, then redeploy."
-        );
-        console.error(
-          "For local: Create .env.local with NEXT_PUBLIC_API_URL=http://localhost:4000"
-        );
-
-        const errorMsg =
-          typeof window !== "undefined" &&
-          window.location.hostname === "localhost"
-            ? "NEXT_PUBLIC_API_URL is not set. Create a .env.local file with: NEXT_PUBLIC_API_URL=http://localhost:4000"
-            : "API configuration error. Please contact support.";
-        throw new Error(errorMsg);
-      }
 
       const response = await fetch(`${apiUrl}/api/v1/waitlist`, {
         method: "POST",
