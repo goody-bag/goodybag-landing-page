@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-accent-pink/30">
+    <section id="about" className="py-20 bg-gradient-to-b from-white to-accent-pink/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Left Column */}

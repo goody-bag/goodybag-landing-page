@@ -117,10 +117,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/data-deletion"
+                  className="text-gray-400 hover:text-primary transition-colors"
+                >
+                  Data Deletion
                 </a>
               </li>
               <li>
